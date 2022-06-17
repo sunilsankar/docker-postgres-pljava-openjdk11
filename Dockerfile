@@ -1,4 +1,4 @@
-FROM postgres:11.16-bullseye
+FROM postgres:11-bullseye
 LABEL maintainer="Sunil Sankar"
 ENV TERM xterm-256color
 RUN apt-get update && \
@@ -10,7 +10,8 @@ RUN apt-get update && \
     mvn -Pwnosign clean install && \
     java -jar /pljava/pljava-packaging/target/pljava-pg11.jar && \
     cd ../ && \
-    apt-get -y remove --purge --auto-remove git ca-certificates g++ maven postgresql-server-dev-11 libpq-dev libecpg-dev libkrb5-dev libssl-dev && \
+    apt-get -y remove --purge --auto-remove git ca-certificates g++ maven postgresql-server-dev-11 openjdk-11-jdk libpq-dev libecpg-dev libkrb5-dev libssl-dev && \
+    apt-get --fix-missing -y --force-yes --no-install-recommends install openjdk-11-jdk-headless && \
     apt-get -y clean autoclean autoremove && \
     rm -rf ~/.m2 /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD /docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
