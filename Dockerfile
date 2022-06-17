@@ -14,6 +14,3 @@ RUN apt-get update && \
     apt-get -y clean autoclean autoremove && \
     rm -rf ~/.m2 /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD /docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
-ENTRYPOINT ["/docker-entrypoint.sh"]
-EXPOSE 5432
-CMD ["postgres"]
