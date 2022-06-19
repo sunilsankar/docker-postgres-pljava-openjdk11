@@ -1,4 +1,4 @@
-name: ci
+name: develop
 
 on:
   push:
@@ -39,5 +39,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          platforms: linux/arm64
-          tags: sunilsankar/postgres-pljava11:latest
+          platforms: linux/arm64, linux/amd64
+          tags: sunilsankar/postgres-pljava11:beta
