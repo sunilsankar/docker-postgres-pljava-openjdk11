@@ -40,4 +40,4 @@ jobs:
         with:
           push: true
           platforms: linux/arm64, linux/amd64
-          tags: sunilsankar/postgres-pljava11:beta
+          tags: sunilsankar/postgres-pljava11:latest
