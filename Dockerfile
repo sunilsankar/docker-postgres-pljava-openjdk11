@@ -1,7 +1,6 @@
 
 FROM postgres:11-bullseye
 LABEL maintainer="Sunil Sankar"
-ENV TERM xterm-256color
 RUN apt-get update && \
     apt-get clean && apt-get update && apt-get --fix-missing -y --force-yes --no-install-recommends install git ca-certificates  openjdk-11-jdk g++ maven postgresql-server-dev-11 libpq-dev libecpg-dev libkrb5-dev libssl-dev && \
     git clone https://github.com/tada/pljava.git && \
